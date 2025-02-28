@@ -11,3 +11,5 @@ Google AIY VoiceKitに付属のVoice BonnetをKernel 6.6系列で動くように
 # devicetreeについて
 VoiceBonnetのeepromから読み込まれて勝手にデバイスツリーが適用されます。
 
+# 既知の問題
+- alsaの設定がよくわからず。（データは転送できていそうだが音が出ない。。。謎）
