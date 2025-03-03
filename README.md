@@ -23,8 +23,11 @@ Raspberry Pi zero2に変えるだけでかなり動作が改善するので良�
 
 
 # Controlの種類
+
 amixer -c 2 controlsの出力結果
+
 ---
+
 numid=24,iface=CARD,name='Headphone Jack'
 numid=4,iface=MIXER,name='Headphone Channel Switch'
 numid=25,iface=MIXER,name='Headphone Switch'
