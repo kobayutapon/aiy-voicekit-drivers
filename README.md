@@ -27,7 +27,7 @@ Raspberry Pi zero2に変えるだけでかなり動作が改善するので良�
 amixer -c 2 controlsの出力結果
 
 ---
-
+~~~
 numid=24,iface=CARD,name='Headphone Jack'
 numid=4,iface=MIXER,name='Headphone Channel Switch'
 numid=25,iface=MIXER,name='Headphone Switch'
@@ -160,4 +160,4 @@ numid=48,iface=MIXER,name='Sto1 ADC MIXL ADC2 Switch'
 numid=49,iface=MIXER,name='Sto1 ADC MIXR ADC1 Switch'
 numid=50,iface=MIXER,name='Sto1 ADC MIXR ADC2 Switch'
 numid=56,iface=MIXER,name='VAD ADC Mux'
----
+~~~
