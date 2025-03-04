@@ -232,7 +232,8 @@ dtparam=i2s=on
 #dtparam=audio=on
 # dtoverlay=dwc2
 start_x=1
-gpu_mem=128~~~
+gpu_mem=128
+~~~
 
 ## デバイスツリー
 
@@ -1222,3 +1223,48 @@ pi@raspberrypi:~ $ amixer scontrols
 Simple mixer control 'Master',0
 Simple mixer control 'Capture',0
 ~~~
+
+## 再生時のdmesg
+- rt5645でクロック設定のメッセージが出ている
+- bcm2835-i2sで転送時のメッセージが出ている
+- 
+~~~
+[   12.335892] rt5645 1-001a: bypass=1 m=0 n=2 k=2
+[   12.337132] rt5645 1-001a: Sysclk is 24576000Hz and clock id is 1
+[   12.337140] rt5645 1-001a: bclk is 1536000Hz and lrck is 48000Hz
+[   12.337145] rt5645 1-001a: bclk_ms is 0 and pre_div is 1 for iis 0
+[   12.337221] clk_prepare_enable(dev->clk) == 0
+[   12.337245] bcm2835-i2s 3f203000.i2s: slots: 2 width: 16 rx mask: 0x03 tx_mask: 0x03
+[   12.337250] bcm2835-i2s 3f203000.i2s: frame len: 32 sync len: 16 data len: 16
+[   12.337254] bcm2835-i2s 3f203000.i2s: rx pos: 1,17 tx pos: 1,17
+[   12.337259] bcm2835-i2s 3f203000.i2s: sampling rate: 48000 bclk rate: 1536000
+[   12.337264] bcm2835-i2s 3f203000.i2s: CLKM: 0 CLKI: 1 FSM: 0 FSI: 1 frame start: falling edge
+[   13.980234] fuse init (API version 7.26)
+[   15.463263] Only get approximation about PLL
+[   15.463281] rt5645 1-001a: bypass=0 m=13 n=53 k=2
+[   15.464108] rt5645 1-001a: Sysclk is 22579200Hz and clock id is 1
+[   15.464116] rt5645 1-001a: bclk is 1411200Hz and lrck is 44100Hz
+[   15.464121] rt5645 1-001a: bclk_ms is 0 and pre_div is 1 for iis 0
+[   15.464189] clk_prepare_enable(dev->clk) == 0
+[   15.464207] bcm2835-i2s 3f203000.i2s: slots: 2 width: 16 rx mask: 0x03 tx_mask: 0x03
+[   15.464212] bcm2835-i2s 3f203000.i2s: frame len: 32 sync len: 16 data len: 16
+[   15.464217] bcm2835-i2s 3f203000.i2s: rx pos: 1,17 tx pos: 1,17
+[   15.464221] bcm2835-i2s 3f203000.i2s: sampling rate: 44100 bclk rate: 1411200
+[   15.464226] bcm2835-i2s 3f203000.i2s: CLKM: 0 CLKI: 1 FSM: 0 FSI: 1 frame start: falling edge
+[   15.773846] rt5645 1-001a: bclk is 1411200Hz and lrck is 44100Hz
+[   15.773857] rt5645 1-001a: bclk_ms is 0 and pre_div is 1 for iis 0
+[   15.773900] bcm2835-i2s 3f203000.i2s: slots: 2 width: 16 rx mask: 0x03 tx_mask: 0x03
+[   15.773906] bcm2835-i2s 3f203000.i2s: frame len: 32 sync len: 16 data len: 16
+[   15.773910] bcm2835-i2s 3f203000.i2s: rx pos: 1,17 tx pos: 1,17
+[   15.773917] bcm2835-i2s 3f203000.i2s: sampling rate: 44100 bclk rate: 1411200
+[   15.773922] bcm2835-i2s 3f203000.i2s: CLKM: 0 CLKI: 1 FSM: 0 FSI: 1 frame start: falling edge
+[   15.836737] rt5645 1-001a: bclk is 1411200Hz and lrck is 44100Hz
+[   15.836750] rt5645 1-001a: bclk_ms is 0 and pre_div is 1 for iis 0
+[   15.836777] clk_prepare_enable(dev->clk) == 0
+[   15.836805] bcm2835-i2s 3f203000.i2s: slots: 2 width: 16 rx mask: 0x03 tx_mask: 0x03
+[   15.836811] bcm2835-i2s 3f203000.i2s: frame len: 32 sync len: 16 data len: 16
+[   15.836816] bcm2835-i2s 3f203000.i2s: rx pos: 1,17 tx pos: 1,17
+[   15.836823] bcm2835-i2s 3f203000.i2s: sampling rate: 44100 bclk rate: 1411200
+[   15.836829] bcm2835-i2s 3f203000.i2s: CLKM: 0 CLKI: 1 FSM: 0 FSI: 1 frame start: falling edge
+[   15.849710] rt5645 1-001a: bclk is 1411200Hz and lrck is 44100Hz
+[   15.849719] rt5645 1-001a: bclk_ms is 0 and pre_div is 1 for iis 0~~~
